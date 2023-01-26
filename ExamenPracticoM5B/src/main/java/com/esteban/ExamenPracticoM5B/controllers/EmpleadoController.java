@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 @RestController
@@ -22,28 +23,43 @@ public class EmpleadoController {
     }
 
     @PostMapping("/crear")
-    public ResponseEntity<Empleado> crear(@RequestBody Empleado c) {
+    public ResponseEntity<String> crear(@RequestBody Empleado c) {
 
+        DecimalFormat decimalFormat = new DecimalFormat("#.00");
         Integer dias = c.getDias_trabajo();
         double sueldoInicial = c.getSueldo();
         double salario = 0;
         double bono = 0;
         double salarioTotal = 0;
 
-        if ( dias < 20) {
-            salario = dias * 15;
-            salarioTotal = salario + sueldoInicial;
-        } else if ( dias >= 20) {
-            salario = dias * 15;
-            bono = salario * 0.02;
-            salarioTotal = salario + bono + sueldoInicial;
-        } else if (dias >= 30){
-            salario = dias * 15;
-            bono = salario * 0.05;
-            salarioTotal = salario + bono + sueldoInicial;
+        if (c.getNombre() == null || c.getApellido() == null || c.getTelefono() == null || c.getDireccion() == null
+                || c.getFecha_nacimiento() == null || c.getObservaciones() == null || c.getDias_trabajo() == null || c.getNombre() == "" || c.getApellido() == "" || c.getTelefono() == "" || c.getDireccion() == ""
+                || c.getObservaciones() == "" || c.getDias_trabajo() == 0) {
+            return new ResponseEntity<>("Valores Nulos", HttpStatus.BAD_REQUEST);
+        }else {
+
+            if (c.getSueldo() < 0 || c.getDias_trabajo() < 0){
+                return new ResponseEntity<>("No acepta negativos en el SUELDO o DIAS", HttpStatus.BAD_REQUEST);
+            } else {
+                if ( dias < 20) {
+                    salario = dias * 15;
+                    salarioTotal = salario + sueldoInicial;
+                } else if ( dias >= 20) {
+                    salario = dias * 15;
+                    bono = salario * 0.02;
+                    salarioTotal = salario + bono + sueldoInicial;
+                } else if (dias >= 30){
+                    salario = dias * 15;
+                    bono = salario * 0.05;
+                    salarioTotal = salario + bono + sueldoInicial;
+                }
+
+                c.setSueldo(salarioTotal);
+                empleadoService.save(c);
+                return new ResponseEntity<>("Creado Exitosamente", HttpStatus.CREATED);
+            }
         }
-        c.setSueldo(salarioTotal);
-        return new ResponseEntity<>(empleadoService.save(c), HttpStatus.CREATED);
+
     }
 
     @DeleteMapping("/eliminar/{id}")

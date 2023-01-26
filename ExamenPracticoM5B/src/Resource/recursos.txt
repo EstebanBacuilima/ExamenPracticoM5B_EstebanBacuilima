@@ -1,0 +1,21 @@
+Link Fotos: https://docs.google.com/document/d/1pPrgP5eTLb8SPb5QbWRPIIeIlbImdMYnNktnGbljRiU/edit?usp=sharing
+SCRIP
+INSERT INTO `empleado` (`id_empleado`, `apellido`, `dias_trabajo`, `direccion`, `fecha_nacimiento`, `nombre`, `observaciones`, `sueldo`, `telefono`) VALUES
+(1, 'Bacuilima', '5', 'Autopista New', '2003-02-06 19:00:00.000000', 'Esteban', 'No hay observaciones actualizadas', 750, '4024869'),
+(2, 'Alvarez', '20', 'Avenida', '2003-02-06 19:00:00.000000', 'Andres', 'No hay observaciones', 60, '4587968'),
+(3, 'string', '0', 'string', '2023-01-26 11:29:55.000000', 'string', 'string', 0, 'string'),
+(7, 'Aquilador', '50', 'Autopista', '2003-02-06 19:00:00.000000', 'Juan', 'No hay observaciones', 15, '4024869'),
+(8, 'Aquilador', '50', 'Autopista', '2003-02-06 19:00:00.000000', 'Juan', 'No hay observaciones', 765, '4024869'),
+(9, 'Aquilador', '20', 'Autopista', '2003-02-06 19:00:00.000000', 'Juan', 'No hay observaciones', 306, '4024869'),
+(10, 'Aquilador', '19', 'Autopista', '2003-02-06 19:00:00.000000', 'Juan', 'No hay observaciones', 285, '4024869'),
+(11, 'Aquilador', '20', 'Autopista', '2003-02-06 19:00:00.000000', 'Juan', 'No hay observaciones', 306, '4024869'),
+(12, 'Aquilador', '20', 'Autopista', '2003-02-06 19:00:00.000000', 'Juan', 'No hay observaciones', 406.5, '4024869'),
+(13, 'Aquilador', '20', 'Autopista', '2003-02-06 19:00:00.000000', 'Juan', 'No hay observaciones', 206, '4024869'),
+(14, 'Aquilador', '20', 'Autopista', '2003-02-06 19:00:00.000000', 'Juan', 'No hay observaciones', 0, '4024869'),
+(15, 'Aquilador', '20', 'Autopista', '2003-02-06 19:00:00.000000', 'Juan', 'No hay observaciones', 406, '4024869'),
+(16, 'Aquilador', '50', 'Autopista', '2003-02-06 19:00:00.000000', 'Juan', 'No hay observaciones', 865, '4024869'),
+(17, 'Aquilador', '50', 'Autopista', '2003-02-06 19:00:00.000000', 'Juan', 'No hay observaciones', 865.5, '4024869'),
+(18, 'Aquilador', '50', 'Autopista', '2003-02-06 19:00:00.000000', 'Juan', 'No hay observaciones', 865.505, '4024869'),
+(19, 'Aquilador', '20', 'Autopista', '2003-02-06 19:00:00.000000', 'Juan', 'No hay observaciones', 206, '4024869'),
+(20, 'Aquilador', '50', 'Autopista', '2003-02-06 19:00:00.000000', 'Juan', 'No hay observaciones', 865, '4024869'),
+(21, 'Perez', '65', 'Primero de mayo', '2023-01-25 19:00:00.000000', 'David', 'NA', 1094.5, '1231313');
